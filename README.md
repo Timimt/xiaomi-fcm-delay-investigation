@@ -37,6 +37,8 @@ https://m.mobile01.com/topicdetail.php?f=634&t=6892724
 實測結果：
 
 安裝失敗，系統顯示錯誤畫面，無法完成覆蓋。
+![1908f2a809a3e2ab6fa6f71d7d8cec0d1442759421](https://github.com/user-attachments/assets/b2b0e998-3f54-434c-9026-ec8e99e77ed9)
+*圖 1：嘗試以國際版應用覆蓋中國版時的錯誤畫面*
 
 方法二：使用「小黑屋」凍結「電量與效能」
 
