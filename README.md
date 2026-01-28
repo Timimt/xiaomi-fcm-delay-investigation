@@ -4,17 +4,17 @@ Investigation notes on FCM push notification delays under Xiaomi HyperOS.
 
 本文整理並實測多種網路上流傳之解決方案，用以改善 Xiaomi HyperOS 系統中 FCM（Firebase Cloud Messaging）推送通知延遲的問題。
 
-一、結論摘要
+# 一、結論摘要
 
 整體而言，多數方法在本次測試環境中 效果有限，僅部分方式能在特定情境下改善延遲問題，且部分方法伴隨明顯風險，需審慎評估。
 
-二、測試環境
+# 二、測試環境
 
 裝置：Redmi Note 12 Turbo
 
 作業系統：Xiaomi HyperOS 1.0.3.0（中國版 ROM）
 
-三、重要提醒與聲明
+# 三、重要提醒與聲明
 
 在嘗試以下任何方法前，請**務必先完整備份手機資料**
 
@@ -22,9 +22,9 @@ Investigation notes on FCM push notification delays under Xiaomi HyperOS.
 
 本文部分內容整理自網路公開資料，如有侵權請聯繫 ab520025tim0508@gmail.com
 
-四、各方法說明與實測結果
+# 四、各方法說明與實測結果
 
-方法一：以國際版「電量與效能」取代中國版
+## 方法一：以國際版「電量與效能」取代中國版
 
 資料來源：
 https://m.mobile01.com/topicdetail.php?f=634&t=6892724
@@ -40,7 +40,7 @@ https://m.mobile01.com/topicdetail.php?f=634&t=6892724
 ![1908f2a809a3e2ab6fa6f71d7d8cec0d1442759421](https://github.com/user-attachments/assets/b2b0e998-3f54-434c-9026-ec8e99e77ed9)
 *圖 1：嘗試以國際版應用覆蓋中國版時的錯誤畫面*
 
-方法二：使用「小黑屋」凍結「電量與效能」
+## 方法二：使用「小黑屋」凍結「電量與效能」
 
 方法說明：
 透過 ADB 連線搭配「小黑屋」嘗試凍結系統內建的「電量與效能」應用程式，以避免其干預背景行為。
@@ -50,7 +50,7 @@ https://m.mobile01.com/topicdetail.php?f=634&t=6892724
 無法成功凍結該應用程式，原因未知。
 推測原因：系統可能對該應用設有**白名單管理**、**特定權限限制**，或有**底層系統保護機制**，導致凍結操作無效。
 
-方法三：安裝 Heartbeat Fixer for GCM
+## 方法三：安裝 Heartbeat Fixer for GCM
 
 方法說明：
 該應用程式可調整裝置與 Google GCM / FCM 伺服器之間的連線頻率，以維持背景連線狀態。
@@ -58,9 +58,9 @@ https://m.mobile01.com/topicdetail.php?f=634&t=6892724
 
 實測結果：
 
-推送延遲情況略有改善，但仍存在延遲，效果有限。
+推送延遲情況略有改善，但並不穩定。
 
-方法四：解除安裝「電量與效能」系統應用
+## 方法四：解除安裝「電量與效能」系統應用
 
 資料來源：
 https://m.mobile01.com/topicdetail.php?f=634&t=6892724
@@ -72,13 +72,14 @@ https://m.mobile01.com/topicdetail.php?f=634&t=6892724
 
 實測結果：
 
-本次未實際測試。
+未實際測試
+依
 
 根據評論回饋，部分使用者表示有效，但裝置重新開機後需重新操作。
 
 此方法具有一定風險，不建議一般使用者嘗試。
 
-方法五：於開發者模式中關閉「系統最佳化」
+## 方法五：於開發者模式中關閉「系統最佳化」
 
 資料來源：
 https://m.mobile01.com/topicdetail.php?f=634&t=6895799
@@ -95,7 +96,7 @@ https://m.mobile01.com/topicdetail.php?f=634&t=6895799
 
 但系統 UI 外觀發生變化（例如桌布重置），且部分系統級應用可能無法正常運作。
 
-方法六：將需要即時推送的應用程式縮為浮動小視窗
+## 方法六：將需要即時推送的應用程式縮為浮動小視窗
 
 資料來源：
 https://m.mobile01.com/topicdetail.php?f=634&t=6892724&p=1
